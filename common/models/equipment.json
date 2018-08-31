@@ -1,0 +1,72 @@
+{
+  "name": "Equipment",
+  "plural": "Equipments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "excellent"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "equipmentType": {
+      "type": "belongsTo",
+      "model": "EquipmentType",
+      "foreignKey": "equipmentTypeId"
+    },
+    "office": {
+      "type": "belongsTo",
+      "model": "Office",
+      "foreignKey": "officeId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "super-admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "super-admin",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "super-admin",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    }
+  ],
+  "methods": {}
+}

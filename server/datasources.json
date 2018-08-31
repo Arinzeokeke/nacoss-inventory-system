@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongoDb": {
+    "host": "",
+    "port": 0,
+    "url": "mongodb://localhost/ui-term-project",
+    "database": "",
+    "password": "",
+    "name": "mongoDb",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Office",
+  "plural": "Offices",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "manager": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "managerId"
+    },
+    "equipments": {
+      "type": "hasMany",
+      "model": "Equipment",
+      "foreignKey": "officeId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "super-admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

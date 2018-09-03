@@ -39,8 +39,8 @@ class Navbar extends React.Component {
   }
 }
 
-export default withRouter(() => (
+export default withRouter(props => (
   <Subscribe to={[AppContainer]}>
-    {appContainer => <Navbar appContainer={appContainer} />}
+    {appContainer => <Navbar appContainer={appContainer} {...props} />}
   </Subscribe>
 ))

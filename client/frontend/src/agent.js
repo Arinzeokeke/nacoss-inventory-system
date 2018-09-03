@@ -45,10 +45,7 @@ export const Equipment = {
   update: (id, body) => axiosInstance.put(`/Equipments/${id}`, body),
   create: body => axiosInstance.post('/Equipments', body),
   createBatch: body => axiosInstance.post('/Equipments/createEquipments', body),
-  index: filter =>
-    axiosInstance.get(
-      `/Equipments${filter ? '?filter=' + filter : ''}&filter[include][office]`
-    ),
+  index: filter => axiosInstance.get(`/Equipments?filter[include][office]`),
   show: id => axiosInstance.get(`/Equipments/${id}`),
   destroy: id => axiosInstance.delete(`/Equipments/${id}`)
 }

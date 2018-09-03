@@ -32,7 +32,7 @@ module.exports = function(Equipment) {
       }
     })
 
-    return equipPromises.then(r => r.toJSON()).catch(err => {
+    return Promise.all(equipPromises).catch(err => {
       throw err
       cb(null, err)
     })

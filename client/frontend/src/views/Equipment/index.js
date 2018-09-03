@@ -1,5 +1,6 @@
 import React from 'react'
 import queryString from 'query-string'
+import values from 'lodash.values'
 import { Link } from 'react-router-dom'
 import { Equipment as EquipmentApi, Office } from '../../agent'
 
@@ -15,7 +16,9 @@ class Equipment extends React.Component {
     if (values.equipmentType) {
       filters.equipmentTypeId = values.equipmentType
     }
-    const equipments = await EquipmentApi.index(JSON.stringify(filters))
+
+    const equipments = await EquipmentApi.index()
+
     const offices = await Office.index()
     this.setState(state => ({ ...state, equipments, offices }))
   }
@@ -91,8 +94,9 @@ class Table extends React.Component {
     })
 
     const statusCol = (
-      <div className="input-field col s12">
+      <div className="">
         <select
+          className="browser-default"
           onChange={ev => {
             this.handleStatusChange(ev, id)
           }}
@@ -106,6 +110,9 @@ class Table extends React.Component {
   }
 
   renderOfficeCol(office, equipmentId) {
+    if (!office) {
+      office = { id: null }
+    }
     const options = this.props.offices.map(({ name, id }) => {
       return (
         <option value={id} key={id}>
@@ -115,8 +122,9 @@ class Table extends React.Component {
     })
 
     const officeCol = (
-      <div className="input-field col s12">
+      <div className="">
         <select
+          className="browser-default"
           onChange={ev => {
             this.handleOfficeChange(ev, equipmentId)
           }}

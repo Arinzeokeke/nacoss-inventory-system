@@ -69,6 +69,14 @@ class Dashboard extends React.Component {
             />
           </div>
         </div>
+        <div className="col s12">
+          <Card
+            title="Equipments"
+            description="Our equipments"
+            count={3}
+            viewRoute={`/equipments`}
+          />
+        </div>
       </React.Fragment>
     )
   }

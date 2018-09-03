@@ -50,9 +50,6 @@ class ManagerDetail extends React.Component {
       const checked = this.state.offices.some(v => v.id === id)
       return (
         <div key={id}>
-          <label htmlFor={id}>
-            <span> {name}</span>
-          </label>
           <input
             type="checkbox"
             value={id}
@@ -60,6 +57,9 @@ class ManagerDetail extends React.Component {
             checked={checked}
             onChange={this.handleChange.bind(this)}
           />
+          <label htmlFor={id}>
+            <span> {name}</span>
+          </label>
         </div>
       )
     })
@@ -68,9 +68,10 @@ class ManagerDetail extends React.Component {
     const { firstName, lastName, email } = this.state.manager
     return (
       <React.Fragment>
-        <p> Name: {firstName + ' ' + lastName}</p>
-        <p> Email: {email}</p>
+        <h3> Name: {firstName + ' ' + lastName}</h3>
+        <h4> Email: {email}</h4>
 
+        <h5> Assigned Offices </h5>
         <form action="#">{this.renderOfficeSubs()}</form>
       </React.Fragment>
     )

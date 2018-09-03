@@ -31,7 +31,7 @@ class AddEquipmentType extends React.Component {
                         type="text"
                         className="validate"
                       />
-                      <label htmlFor="name">Office Name</label>
+                      <label htmlFor="name">Equipment Type Name</label>
                       {meta.error &&
                         meta.touched && (
                           <p className="form-input-hint">{meta.error}</p>
@@ -51,7 +51,7 @@ class AddEquipmentType extends React.Component {
                         type="text"
                         className="validate"
                       />
-                      <label htmlFor="name">Office Description</label>
+                      <label htmlFor="name">Equipment Type Description</label>
                       {meta.error &&
                         meta.touched && (
                           <p className="form-input-hint">{meta.error}</p>

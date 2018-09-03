@@ -14,8 +14,10 @@ class AddEquipment extends React.Component {
     console.log(values)
     try {
       const equipment = await EquipmentApi.createBatch({
-        ...values,
-        equipmentTypeId: this.state.types[0].id
+        equipmentDetails: {
+          ...values,
+          equipmentTypeId: this.state.types[0].id
+        }
       })
       this.props.history.push('/dashboard')
     } catch (err) {
